@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<link href="js/jquery.calenduh.css" media="all" rel="stylesheet" type="text/css" />
+
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.calenduh.js"></script>
+		<script type="text/javascript">
+		var c = null;
+		$(document).ready(function(){
+			$('#calendar')
+				.calenduh({date: new Date(2014, 4, 1)})
+				.bind('calenduh.selectday', function() {
+					console.log(arguments)
+				})
+		})
+		</script>
+	</head>
+	<body>
+		<div id="calendar">
+		</div>
+	</body>
+</html>

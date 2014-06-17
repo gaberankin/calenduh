@@ -1,0 +1,75 @@
+@font-family: 'Helvetica', Arial, Verdana;
+@single-width: 1.3em;
+@container-padding: 0;
+@container-margin: 0;
+@element-font-size: 0.5em;
+@element-font-size-hover: 0.7em;
+@element-padding: 0;
+@element-margin: 0;
+@element-color: #000;
+@element-color-hover: #444;
+@element-background: #fff;
+@element-background-hover: #eee;
+@element-current-day-color: #fff;
+@element-current-day-background: #008;
+
+.calenduh-container {
+	.calenduh-cf {
+		box-sizing: border-box;
+		&:before, &:after {
+			content: " ";
+			box-sizing:border-box;
+			display: table;
+		}
+		&:after {
+			clear: both;
+		}
+
+	}
+	.calenduh-calendar {
+		ul.calenduh {
+			font-family: @font-family;
+			width: @single-width * 7;
+			padding: @container-padding;
+			margin: @container-margin;
+
+			li {
+				padding: @element-padding;
+				margin: @element-margin;
+				width: @single-width;
+				height: @single-width;
+				display: block;
+				float: left;
+				span.day {
+					display: block;
+					width: 100%;
+					height: 100%;
+					font-size: @element-font-size;
+					color: @element-color;
+					background: @element-background;
+					text-align: right;
+					cursor: pointer;
+				}
+				&.prev-month, &.next-month {
+					-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+					filter: alpha(opacity=60);
+					opacity: 0.6;
+				}
+				&.over-day {
+					span.day {
+						font-size: @element-font-size-hover;
+						color: @element-color-hover;
+						background: @element-background-hover;
+					}
+				}
+				&.current-day {
+					span.day {
+						background: @element-current-day-background;
+						color: @element-current-day-color;
+						border-radius: 2px;
+					}
+				}
+			}
+		}
+	}
+}
