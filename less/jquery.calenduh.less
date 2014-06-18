@@ -12,6 +12,10 @@
 @element-background-hover: #eee;
 @element-current-day-color: #fff;
 @element-current-day-background: #008;
+@element-today-color: #000;
+@element-today-color-hover: #000;
+@element-today-background: #eef;
+@element-today-background-hover: #ddf;
 
 .calenduh-container {
 	.calenduh-cf {
@@ -60,6 +64,17 @@
 						font-size: @element-font-size-hover;
 						color: @element-color-hover;
 						background: @element-background-hover;
+					}
+				}
+				&.calenduh-today {
+					span.day {
+						background: @element-today-background;
+						color: @element-today-color;
+						border-radius: 2px;
+					}
+					&.over-day {
+						color: @element-today-color-hover;
+						background: @element-today-background-hover;
 					}
 				}
 				&.current-day {
