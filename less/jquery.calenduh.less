@@ -1,23 +1,13 @@
-@font-family: 'Helvetica', Arial, Verdana;
-@single-width: 1.3em;
-@container-padding: 0;
-@container-margin: 0;
-@element-font-size: 0.5em;
-@element-font-size-hover: 0.7em;
-@element-padding: 0;
-@element-margin: 0;
-@element-color: #000;
-@element-color-hover: #444;
-@element-background: #fff;
-@element-background-hover: #eee;
-@element-current-day-color: #fff;
-@element-current-day-background: #008;
-@element-today-color: #000;
-@element-today-color-hover: #000;
-@element-today-background: #eef;
-@element-today-background-hover: #ddf;
+@import 'variables';
+@import 'mixins';
 
 .calenduh-container {
+	padding: @container-padding;
+	margin: @container-margin;
+	.border-radius(@container-border-radius);
+	.drop-shadow;
+
+	// namespaced clearfix
 	.calenduh-cf {
 		box-sizing: border-box;
 		&:before, &:after {
@@ -32,10 +22,10 @@
 	}
 	.calenduh-calendar {
 		ul.calenduh {
-			font-family: @font-family;
-			width: @single-width * 7;
-			padding: @container-padding;
-			margin: @container-margin;
+			.font-family(@font-family);
+			width: (@single-width * 7);
+			padding: 0;
+			margin: 0;
 
 			li {
 				padding: @element-padding;
@@ -51,13 +41,12 @@
 					font-size: @element-font-size;
 					color: @element-color;
 					background: @element-background;
-					text-align: right;
+					text-align: center;
 					cursor: pointer;
+					.border-radius(@element-day-border-radius);
 				}
 				&.prev-month, &.next-month {
-					-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-					filter: alpha(opacity=60);
-					opacity: 0.6;
+					.opacity(0.6);
 				}
 				&.over-day {
 					span.day {
@@ -70,7 +59,7 @@
 					span.day {
 						background: @element-today-background;
 						color: @element-today-color;
-						border-radius: 2px;
+						.border-radius(@element-today-border-radius);
 					}
 					&.over-day {
 						color: @element-today-color-hover;
@@ -81,7 +70,7 @@
 					span.day {
 						background: @element-current-day-background;
 						color: @element-current-day-color;
-						border-radius: 2px;
+						.border-radius(@element-current-day-border-radius);
 					}
 				}
 			}
